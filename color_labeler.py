@@ -1,18 +1,17 @@
 from collections import defaultdict
-from collections import OrderedDict
 from cv2 import mean
 
 class ColorLabeler:
 	def __init__(self):
-		# Bounds for hue values
-		self.colors = OrderedDict({
+		# Bounds for hues
+		self.colors = {
 			'red-lower' : (0, 5),
 			'orange' : (5, 20),
 			'yellow' : (20, 45),
 			'green' : (45, 90),
 			'blue' : (90, 120),
 			'red-upper' : (120, 180)
-		})
+		}
 
 	def label_image(self, image):
 		# Get average color of image
@@ -44,3 +43,5 @@ class ColorLabeler:
 				most_frequent_hue = (k, v)
 
 		return most_frequent_hue
+
+		
